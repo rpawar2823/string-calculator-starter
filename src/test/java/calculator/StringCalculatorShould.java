@@ -1,5 +1,12 @@
 package calculator;
 
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import static org.hamcrest.CoreMatchers.is;
+
+import static org.junit.Assert.assertThat;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,4 +24,15 @@ class StringCalculatorShould {
         StringCalculator stringCalculator = new StringCalculator();
         assertEquals(1, stringCalculator.add("1"));
     }
+
+	@Test
+	public void sumsTwoNumbersSeperatedByComma() {
+		assertThat(StringCalculator.sum("1,2"), is(3));
+		assertThat(StringCalculator.sum("1,3"), is(4));
+		}
+
+	@Test
+	public void sumsThreeNumbersSeperatedByComma() {
+		assertThat(StringCalculator.sum("1,2,3"), is(6));
+		}
 }
