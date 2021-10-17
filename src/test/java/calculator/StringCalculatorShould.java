@@ -35,4 +35,13 @@ class StringCalculatorShould {
 	public void sumsThreeNumbersSeperatedByComma() {
 		assertThat(StringCalculator.sum("1,2,3"), is(6));
 		}
+	@Test
+	public void sumsNumbersDelimitedByNewline() {
+		assertThat(StringCalculator.sum("1\n2"), is(3));
+		}
+
+	@Test
+	public void sumsNumbersDelimitedByCommaOrNewline() {
+		assertThat(StringCalculator.sum("1,2\n3"), is(6));
+		}
 }
